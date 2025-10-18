@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Screening Tool</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-search"></i> AI-Powered Resume Screening</h1>
+            <p>Upload a resume and get instant insights to streamline your hiring process.</p>
+        </div>
+    </div>
+    <div class="container">
+        <form id="uploadForm" enctype="multipart/form-data">
+            <div class="upload-section">
+                <label for="resumeFile" class="upload-label">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>Choose a PDF or TXT file</span>
+                </label>
+                <input type="file" id="resumeFile" accept=".pdf,.txt" required>
+                <button type="submit" id="submitBtn">
+                    <i class="fas fa-play"></i> Screen Resume
+                </button>
+            </div>
+        </form>
+        <div id="results" class="results-card" style="display: none;">
+            <h2><i class="fas fa-chart-line"></i> Screening Results</h2>
+            <div class="score-section">
+                <p>Match Score:</p>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <span id="scoreText">0%</span>
+            </div>
+            <div class="text-section">
+                <h3>Extracted Text Preview:</h3>
+                <p id="text">No text extracted yet.</p>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
